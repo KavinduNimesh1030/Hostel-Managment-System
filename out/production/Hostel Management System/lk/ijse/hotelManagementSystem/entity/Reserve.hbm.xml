@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "lk.ijse.hotelManagementSystem.entity.Reserve" table ="Reserve">
+        <id name = "res_id" column="res_id">
+
+            <generator class = "assigned"></generator>
+        </id>
+        <property name = "date" column="date"></property>
+        <property name = "key_money" column="key_money"></property>
+        <many-to-one name="Student" class="lk.ijse.hotelManagementSystem.entity.Student">
+            <column name="customer_id" />
+        </many-to-one>
+        <many-to-one name="Room" class="lk.ijse.hotelManagementSystem.entity.Room">
+            <column name="Room_id" />
+        </many-to-one>
+
+
+    </class>
+</hibernate-mapping>
