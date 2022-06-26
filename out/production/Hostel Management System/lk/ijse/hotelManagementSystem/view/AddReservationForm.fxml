@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="505.0" prefWidth="642.0" style="-fx-background-color: white;" stylesheets="@../assert/style/Reservation.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotelManagementSystem.controller.AddReservationFormController">
+   <children>
+      <ComboBox fx:id="cmbCustomerId" layoutX="43.0" layoutY="64.0" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: trancpraint; -fx-border-color: #CFCFCF; -fx-background-radius: 10; -fx-border-radius: 5;" styleClass="combo-box" />
+      <TextField fx:id="txtStatus" layoutX="241.0" layoutY="202.0" prefHeight="25.0" prefWidth="156.0" promptText="Status" />
+      <ComboBox fx:id="cmbRoomId" layoutX="43.0" layoutY="156.0" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: trancpraint; -fx-border-color: #CFCFCF; -fx-background-radius: 10; -fx-border-radius: 5;" />
+      <Label layoutX="11.0" layoutY="14.0" text="Add Reservation" textFill="#8d8686">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Separator layoutX="11.0" layoutY="47.0" prefHeight="3.0" prefWidth="624.0" />
+      <Button fx:id="btnAddReservation" layoutX="516.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnAddReservationOnAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #FE9B1A; -fx-border-radius: 5;" text="+ Add" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblReservation" layoutX="43.0" layoutY="253.0" prefHeight="206.0" prefWidth="552.0">
+        <columns>
+          <TableColumn fx:id="colResId" prefWidth="96.0" text="Res_Id" />
+          <TableColumn fx:id="colDate" prefWidth="113.0" text="Date" />
+            <TableColumn fx:id="colStudentId" prefWidth="119.0" text="Student_Id" />
+            <TableColumn fx:id="colRoomId" prefWidth="117.0" text="Room_Id" />
+            <TableColumn fx:id="colStatus" prefWidth="106.0" text="Status" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtRoomType" layoutX="241.0" layoutY="157.0" prefHeight="25.0" prefWidth="156.0" promptText="Room Type" />
+      <TextField fx:id="txtKeyMoney" layoutX="434.0" layoutY="157.0" prefHeight="25.0" prefWidth="156.0" promptText="Key Money" />
+      <TextField fx:id="txtQtyOnHand" layoutX="43.0" layoutY="202.0" prefHeight="25.0" prefWidth="156.0" promptText="Qty On Hand" />
+      <TextField fx:id="txtCustomerName" layoutX="239.0" layoutY="64.0" prefHeight="25.0" prefWidth="156.0" promptText="Customer Name" />
+      <TextField fx:id="txtCustomerAddress" layoutX="434.0" layoutY="64.0" prefHeight="25.0" prefWidth="156.0" promptText="Customer Address" />
+      <TextField fx:id="txtCustomerContactNo" layoutX="43.0" layoutY="109.0" prefHeight="27.0" prefWidth="156.0" promptText="Customer Contect_No" />
+      <TextField fx:id="txtCustomerDob" layoutX="240.0" layoutY="109.0" prefHeight="25.0" prefWidth="156.0" promptText="Customer Dob" />
+      <TextField fx:id="txtCustomerGender" layoutX="435.0" layoutY="109.0" prefHeight="25.0" prefWidth="156.0" promptText="Customer Gender" />
+      <Button fx:id="btnReservationId" layoutX="504.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="117.0" style="-fx-background-color: #4C0776; -fx-border-radius: 5;" text="ReId" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="435.0" layoutY="202.0" mnemonicParsing="false" onAction="#btnDeleteReservationOnAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #4C0776; -fx-border-radius: 5;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

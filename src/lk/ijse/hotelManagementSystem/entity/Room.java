@@ -19,7 +19,15 @@ public class Room {
     @Column
     String type;
     @Column
-    double monthly_Rent;
+    String key_money;
     @Column
-    String qty;
+    int qty;
+
+    public Room(String room_id) {
+        this.room_id = room_id;
+    }
+
+    public Room(Room room) {
+        this.room_id =room.getRoom_id();
+    }
 }

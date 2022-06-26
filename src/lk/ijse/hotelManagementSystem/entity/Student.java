@@ -1,6 +1,5 @@
 package lk.ijse.hotelManagementSystem.entity;
 
-import com.oracle.webservices.internal.api.databinding.DatabindingMode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Table(name = "Student")
 public class Student {
+
     @Id
     @Column()
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,4 +28,15 @@ public class Student {
     LocalDate date;
     @Column()
     String gender;
+
+
+
+    public Student(String student_id) {
+        this.student_id = student_id;
+    }
+
+    public Student(Student student) {
+        this.student_id = student.getStudent_id();
+
+    }
 }

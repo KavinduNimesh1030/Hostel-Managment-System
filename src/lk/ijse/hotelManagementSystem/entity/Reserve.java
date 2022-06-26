@@ -3,7 +3,6 @@ package lk.ijse.hotelManagementSystem.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +10,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Reserve")
+@Table(name = "Reservevation")
 public class Reserve {
     @Id
     @Column()
@@ -19,14 +18,14 @@ public class Reserve {
     String res_id;
     @Column()
     LocalDate date;
-    @Column()
-    double Key_money;
    // @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     @ManyToOne(cascade = {CascadeType.ALL})
-    @Column(name = "Customer_id")
+    @Column(name = "student_id")
     Student student;
     //@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     @ManyToOne(cascade = {CascadeType.ALL})
-    @Column(name = "Room_id")
+    @Column(name = "room_id")
     Room room;
+    @Column
+    String status;
 }

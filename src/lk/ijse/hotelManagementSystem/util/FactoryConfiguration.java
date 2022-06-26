@@ -1,7 +1,5 @@
 package lk.ijse.hotelManagementSystem.util;
 
-import lk.ijse.hotelManagementSystem.entity.Student;
-import lk.ijse.hotelManagementSystem.entity.Test;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -23,7 +21,7 @@ public class FactoryConfiguration {
         }
         Configuration configuration = new Configuration();
 
-        sessionFactory =  configuration.mergeProperties(properties).addResource("lk/ijse/hotelManagementSystem/entity/Test.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Student.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Room.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Reserve.hbm.xml").buildSessionFactory();
+        sessionFactory =  configuration.mergeProperties(properties).addResource("lk/ijse/hotelManagementSystem/entity/Test.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Student.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Room.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Reserve.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/User.hbm.xml").buildSessionFactory();
     }
 
     public static FactoryConfiguration getInstance() {

@@ -1,13 +1,14 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lk.ijse.hotelManagementSystem.entity.Student;
 import lk.ijse.hotelManagementSystem.entity.Test;
 import lk.ijse.hotelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.util.Properties;
 
 public class AppInitializer extends Application {
 
@@ -16,8 +17,8 @@ public class AppInitializer extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        Session session = FactoryConfiguration.getInstance().getSession();
+    public void start(Stage primaryStage) throws IOException {
+  /*      Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
 //        Properties properties = new Properties();
 //        try {
@@ -29,13 +30,22 @@ public class AppInitializer extends Application {
 //        s1.setId("S001");
 //        s1.setName("Kamal");
 //        session.save(s1);
-        Test t1 = new Test();
-        t1.setId("T001");
-        t1.setName("AA");
+      Test t2 = new Test();
+        t2.setId("T003");
+        t2.setName("AA");
 
-       // session.save(t1);
+       session.save(t2);
+           tx.commit();*/
+//
+//*/
 
+        Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/HotelManagementSystem/view/LoginForm.fxml"));
+        Scene mainScene = new Scene(root);
+        primaryStage.setScene(mainScene);
+        primaryStage.setTitle("Wholesale Shop");
+        primaryStage.centerOnScreen();
+        primaryStage.show();
 
-        tx.commit();
     }
+
 }

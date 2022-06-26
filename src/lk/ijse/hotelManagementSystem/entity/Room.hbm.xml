@@ -10,7 +10,7 @@
             <generator class = "assigned"></generator>
         </id>
         <property name = "type" column="type"></property>
-        <property name = "monthly_Rent" column="monthly_Rent"></property>
+        <property name = "key_money" column="key_money"></property>
         <property name = "qty" column="qty"></property>
 
 
