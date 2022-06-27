@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="505.0" prefWidth="642.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotelManagementSystem.controller.DashBoardViewFormController">
+   <children>
+      <Text fill="#fe9b1a" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="103.708984375">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtName" fill="#0d1c8a" layoutX="115.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin !" wrappingWidth="103.708984375">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text fill="#908f8f" layoutX="16.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi, Don’t foget to controle every activity that exists." wrappingWidth="407.708984375">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#646568" layoutX="12.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" wrappingWidth="127.708984375">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="23.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="464.0" layoutY="5.0" prefHeight="42.0" prefWidth="162.0" style="-fx-background-color: #FE9B1A; -fx-background-radius: 20;">
+         <children>
+            <AnchorPane layoutX="62.0" prefHeight="43.0" prefWidth="104.0" style="-fx-background-color: #51087E;" />
+            <ImageView fx:id="SelectedImageView" fitHeight="43.0" fitWidth="38.0" layoutX="19.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assert/face.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="83.0" layoutY="19.0" onMouseClicked="#btnOpenAddUserForm" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="63.708984375">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblUserName" fill="WHITE" layoutX="83.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kamal Silva" wrappingWidth="63.708984375">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="11.0" />
+               </font>
+            </Text>
+            <FontAwesomeIconView fill="WHITE" glyphName="ANGLE_RIGHT" layoutX="143.0" layoutY="19.0" size="16" />
+         </children>
+      </AnchorPane>
+      <Separator layoutX="11.0" layoutY="52.0" prefHeight="0.0" prefWidth="625.0" />
+   </children>
+</AnchorPane>

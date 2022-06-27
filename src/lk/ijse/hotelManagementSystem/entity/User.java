@@ -20,4 +20,6 @@ public class User {
     String userName;
     @Column()
     String password;
+
+
 }

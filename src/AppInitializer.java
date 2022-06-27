@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lk.ijse.hotelManagementSystem.entity.Test;
+import lk.ijse.hotelManagementSystem.entity.User;
 import lk.ijse.hotelManagementSystem.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -38,6 +39,16 @@ public class AppInitializer extends Application {
            tx.commit();*/
 //
 //*/
+       /* Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction tx = session.beginTransaction();
+        User u1 = new User();
+        u1.setUserId("U001");
+        u1.setUserName("Kavindu");
+        u1.setPassword("kn1234");
+        session.save(u1);
+        tx.commit();*/
+
+
 
         Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/HotelManagementSystem/view/LoginForm.fxml"));
         Scene mainScene = new Scene(root);

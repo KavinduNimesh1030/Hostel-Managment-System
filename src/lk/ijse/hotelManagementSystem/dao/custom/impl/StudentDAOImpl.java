@@ -99,4 +99,10 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return idList;
     }
+//    public void a (){
+//        Session session = FactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//        String hql2 = "SELECT student_id FROM Student WHERE name =:name AND address =: address";
+//    }
+//
 }

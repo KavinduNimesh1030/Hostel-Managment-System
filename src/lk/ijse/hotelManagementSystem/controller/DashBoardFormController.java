@@ -11,12 +11,12 @@ import java.io.IOException;
 public class DashBoardFormController implements Loader {
     public AnchorPane context;
 
-    public void initialize() {
-
+    public void initialize() throws IOException {
+        loadUi("DashBoardViewForm");
     }
 
-    public void btnOpenDashboardOnAction(ActionEvent actionEvent) {
-
+    public void btnOpenDashboardOnAction(ActionEvent actionEvent) throws IOException {
+        loadUi("DashBoardViewForm");
     }
 
     public void btnAddRoomOnAction(ActionEvent actionEvent) throws IOException {
