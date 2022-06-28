@@ -16,7 +16,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Text>
-      <Text fx:id="txtName" fill="#0d1c8a" layoutX="115.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin !" wrappingWidth="103.708984375">
+      <Text fx:id="txtName" fill="#0d1c8a" layoutX="115.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin !" wrappingWidth="230.708984375">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -39,17 +39,17 @@
                   <Image url="@../assert/face.jpg" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="83.0" layoutY="19.0" onMouseClicked="#btnOpenAddUserForm" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="63.708984375">
+            <Text fill="WHITE" layoutX="79.0" layoutY="19.0" onMouseClicked="#btnOpenAddUserForm" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="63.708984375">
                <font>
                   <Font name="Arial Rounded MT Bold" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="lblUserName" fill="WHITE" layoutX="83.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kamal Silva" wrappingWidth="63.708984375">
+            <Text fx:id="lblUserName" fill="WHITE" layoutX="63.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kamal Silva" wrappingWidth="97.708984375">
                <font>
                   <Font name="Arial Rounded MT Bold" size="11.0" />
                </font>
             </Text>
-            <FontAwesomeIconView fill="WHITE" glyphName="ANGLE_RIGHT" layoutX="143.0" layoutY="19.0" size="16" />
+            <FontAwesomeIconView fill="WHITE" glyphName="ANGLE_RIGHT" layoutX="119.0" layoutY="19.0" size="16" />
          </children>
       </AnchorPane>
       <Separator layoutX="11.0" layoutY="52.0" prefHeight="0.0" prefWidth="625.0" />
