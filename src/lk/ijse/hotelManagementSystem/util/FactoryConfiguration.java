@@ -1,27 +1,29 @@
 package lk.ijse.hotelManagementSystem.util;
 
+
+import lk.ijse.hotelManagementSystem.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
-import java.io.IOException;
-import java.util.Properties;
-
+import org.hibernate.service.ServiceRegistry;
 
 public class FactoryConfiguration {
     private static FactoryConfiguration factoryConfiguration;
     private SessionFactory sessionFactory;
 
     private FactoryConfiguration() {
-        Properties properties = new Properties();
         try {
-            properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Configuration configuration = new Configuration();
+            Configuration configuration = new Configuration();
+            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+            configuration.addAnnotatedClass(Room.class).addAnnotatedClass(Student.class).addAnnotatedClass(Reserve.class).addAnnotatedClass(User.class).addAnnotatedClass(Test.class);
+            sessionFactory =  configuration.buildSessionFactory(serviceRegistry);
 
-        sessionFactory =  configuration.mergeProperties(properties).addResource("lk/ijse/hotelManagementSystem/entity/Test.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Student.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Room.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/Reserve.hbm.xml").addResource("lk/ijse/hotelManagementSystem/entity/User.hbm.xml").buildSessionFactory();
+        } catch (Exception e){
+            e.printStackTrace();
+            throw  new RuntimeException("There is issue in factroy configuration");
+        }
+
     }
 
     public static FactoryConfiguration getInstance() {

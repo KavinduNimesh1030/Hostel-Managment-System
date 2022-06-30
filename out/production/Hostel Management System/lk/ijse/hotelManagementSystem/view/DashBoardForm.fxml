@@ -67,6 +67,15 @@
          </cursor>
       </Button>
       <FontAwesomeIconView fill="WHITE" glyphName="BOOK" layoutX="12.0" layoutY="249.0" />
-      <FontAwesomeIconView fill="WHITE" glyphName="PEN" layoutX="16.0" layoutY="244.0" text="" wrappingWidth="38.0" />
+      <FontAwesomeIconView fill="WHITE" glyphName="PEN" layoutX="17.0" layoutY="243.0" text="" wrappingWidth="38.0" />
+      <Button layoutX="33.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnViewReservationOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: Transparent;" text="View Resrvation" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <FontAwesomeIconView fill="WHITE" glyphName="BOOK" layoutX="9.0" layoutY="298.0" />
    </children>
 </AnchorPane>

@@ -18,4 +18,6 @@ public interface ReservationBO extends SuperBO {
     public String generateReservationNewID()throws Exception;
 
     public List<ReserveDTO> LoadAllReservation() throws Exception;
+
+    public List<Object[]> LoadAllKeyMoneyDetail() throws Exception;
 }

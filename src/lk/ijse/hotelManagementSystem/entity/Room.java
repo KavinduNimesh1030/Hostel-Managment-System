@@ -5,29 +5,33 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Room")
 public class Room {
     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
     String room_id;
-    @Column
     String type;
-    @Column
     String key_money;
-    @Column
     int qty;
+
+    @OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
+    private List<Reserve> reserveList = new ArrayList<>();
 
     public Room(String room_id) {
         this.room_id = room_id;
     }
 
-    public Room(Room room) {
-        this.room_id =room.getRoom_id();
+
+
+    public Room(String room_id, String type, String key_money, int qty) {
+        this.room_id =room_id;
+        this.type = type;
+        this.key_money =key_money;
+        this.qty = qty;
     }
 }

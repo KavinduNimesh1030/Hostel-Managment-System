@@ -10,15 +10,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "User")
 public class User {
     @Id
-    @Column()
-    @GeneratedValue(strategy = GenerationType.AUTO)
     String userId;
-    @Column()
     String userName;
-    @Column()
     String password;
 
 

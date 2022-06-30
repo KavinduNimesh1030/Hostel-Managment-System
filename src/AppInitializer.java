@@ -39,15 +39,14 @@ public class AppInitializer extends Application {
            tx.commit();*/
 //
 //*/
-       /* Session session = FactoryConfiguration.getInstance().getSession();
+  /*      Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
         User u1 = new User();
         u1.setUserId("U001");
-        u1.setUserName("Kavindu");
-        u1.setPassword("kn1234");
+        u1.setUserName("Kavindu Nimesh");
+        u1.setPassword("knimesh");
         session.save(u1);
         tx.commit();*/
-
 
 
         Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/HotelManagementSystem/view/LoginForm.fxml"));

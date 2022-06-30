@@ -11,10 +11,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Test")
 public class Test {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     String id;
     @Column

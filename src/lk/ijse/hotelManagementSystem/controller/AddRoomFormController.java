@@ -5,13 +5,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.hotelManagementSystem.bo.BOFactory;
 import lk.ijse.hotelManagementSystem.bo.custom.impl.RoomBOImpl;
 import lk.ijse.hotelManagementSystem.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hotelManagementSystem.dto.RoomDTO;
 import lk.ijse.hotelManagementSystem.entity.Room;
+import lk.ijse.hotelManagementSystem.util.ValidationUtil;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AddRoomFormController {
     private final RoomBOImpl roomBO = (RoomBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
@@ -29,12 +34,27 @@ public class AddRoomFormController {
     public TableColumn colRoomType;
     public TableColumn colKeyMoney;
     public TableColumn colQtyOnHand;
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
+    LinkedHashMap<TextField, Pattern> map2 = new LinkedHashMap<>();
 
     public  void initialize(){
         colRoomId.setCellValueFactory(new PropertyValueFactory("room_id"));
         colRoomType.setCellValueFactory(new PropertyValueFactory("type"));
         colKeyMoney.setCellValueFactory(new PropertyValueFactory("key_money"));
         colQtyOnHand.setCellValueFactory(new PropertyValueFactory("qty"));
+
+        Pattern idPattern = Pattern.compile("^(RM)[0-9,-]{3,5}$");
+        Pattern pricePattern = Pattern.compile("^[0-9]+[.]?[0-9]*$");
+        Pattern qtyPattern = Pattern.compile("^\\d+$");
+        Pattern typePattern = Pattern.compile("^[A-z0-9 ,/]{2,30}$");
+
+        map.put(txtRoomId,idPattern);
+        map.put(txtRoomType,typePattern);
+        map.put(txtKeyMoney,pricePattern);
+        map.put(txtQtyOnHand,qtyPattern);
+
+        map2.put(txtQty,qtyPattern);
+
         loadAllRoom();
         setRoomTypeIds();
         txtRoomId.setVisible(false);
@@ -200,5 +220,33 @@ public class AddRoomFormController {
         txtRoomType.setEditable(b);
         txtKeyMoney.setEditable(b);
         //txtQty.setText(b);
+    }
+
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnSave);
+        if (keyEvent.getCode() == KeyCode.ENTER){
+            Object response = ValidationUtil.validate(map,btnSave);
+
+            if (response instanceof TextField ) {
+                TextField txtField =(TextField) response;
+                txtField.requestFocus();
+            }else if(response instanceof Boolean) {
+                System.out.println("Work");
+            }
+        }
+    }
+    public void textFields_Key_Released2(KeyEvent keyEvent) {
+        ValidationUtil.validate(map2,btnSave);
+        if (keyEvent.getCode() == KeyCode.ENTER){
+            Object response = ValidationUtil.validate(map2,btnSave);
+
+            if (response instanceof TextField ) {
+                TextField txtField =(TextField) response;
+                txtField.requestFocus();
+            }else if(response instanceof Boolean) {
+                System.out.println("Work");
+
+            }
+        }
     }
 }

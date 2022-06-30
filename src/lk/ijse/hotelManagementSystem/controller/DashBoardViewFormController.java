@@ -18,7 +18,7 @@ public class DashBoardViewFormController {
     public Text lblUserName;
 
     public  void initialize(){
-      
+
         lblUserName.setText(LoginFormController.getUserName());
         txtName.setText(LoginFormController.getUserName()+"!");
         System.out.println("inDashBoard"+LoginFormController.getUserName());

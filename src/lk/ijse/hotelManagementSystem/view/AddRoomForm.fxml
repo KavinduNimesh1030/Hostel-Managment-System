@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="505.0" prefWidth="642.0" style="-fx-background-color: white;" stylesheets="@../assert/style/Room.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotelManagementSystem.controller.AddRoomFormController">
    <children>
-      <TextField fx:id="txtRoomId" layoutX="47.0" layoutY="97.0" prefHeight="25.0" prefWidth="156.0" promptText="Room Id" />
-      <TextField fx:id="txtRoomType" layoutX="244.0" layoutY="96.0" prefHeight="25.0" prefWidth="156.0" promptText="Room Type" />
-      <TextField fx:id="txtKeyMoney" layoutX="442.0" layoutY="95.0" prefHeight="25.0" prefWidth="156.0" promptText="Key Money" />
+      <TextField fx:id="txtRoomId" layoutX="47.0" layoutY="97.0" onKeyReleased="#textFields_Key_Released" prefHeight="25.0" prefWidth="156.0" promptText="Room Id" />
+      <TextField fx:id="txtRoomType" layoutX="244.0" layoutY="96.0" onKeyReleased="#textFields_Key_Released" prefHeight="25.0" prefWidth="156.0" promptText="Room Type" />
+      <TextField fx:id="txtKeyMoney" layoutX="442.0" layoutY="95.0" onKeyReleased="#textFields_Key_Released" prefHeight="25.0" prefWidth="156.0" promptText="Key Money" />
       <Label layoutX="48.0" layoutY="81.0" text="Room ID" textFill="#403e3e">
          <font>
             <Font name="Arial Rounded MT Bold" size="11.0" />
@@ -30,7 +30,7 @@
             <Font name="Arial Rounded MT Bold" size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQtyOnHand" layoutX="246.0" layoutY="151.0" prefHeight="25.0" prefWidth="156.0" promptText="Qty On Hand" />
+      <TextField fx:id="txtQtyOnHand" layoutX="246.0" layoutY="151.0" onKeyReleased="#textFields_Key_Released" prefHeight="25.0" prefWidth="156.0" promptText="Qty On Hand" />
       <Label layoutX="247.0" layoutY="137.0" text="Qty On Hand" textFill="#403e3e">
          <font>
             <Font name="Arial Rounded MT Bold" size="11.0" />
@@ -65,7 +65,7 @@
             <TableColumn fx:id="colQtyOnHand" prefWidth="112.0" text="Qty On Hand" />
         </columns>
       </TableView>
-      <TextField fx:id="txtQty" layoutX="47.0" layoutY="151.0" prefHeight="25.0" prefWidth="156.0" promptText="Qty" />
+      <TextField fx:id="txtQty" layoutX="47.0" layoutY="151.0" onKeyReleased="#textFields_Key_Released2" prefHeight="25.0" prefWidth="156.0" promptText="Qty" />
       <Label layoutX="48.0" layoutY="137.0" text="Qty" textFill="#403e3e">
          <font>
             <Font name="Arial Rounded MT Bold" size="11.0" />

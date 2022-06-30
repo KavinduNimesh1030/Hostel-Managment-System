@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,6 +12,11 @@
 
 <AnchorPane prefHeight="505.0" prefWidth="642.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotelManagementSystem.controller.DashBoardViewFormController">
    <children>
+      <ImageView fitHeight="505.0" fitWidth="642.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assert/DashBoard%20BG.jpg" />
+         </image>
+      </ImageView>
       <Text fill="#fe9b1a" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="103.708984375">
          <font>
             <Font name="System Bold" size="22.0" />
@@ -39,17 +45,20 @@
                   <Image url="@../assert/face.jpg" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="79.0" layoutY="19.0" onMouseClicked="#btnOpenAddUserForm" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="63.708984375">
+            <Text fill="WHITE" layoutX="67.0" layoutY="19.0" onMouseClicked="#btnOpenAddUserForm" strokeType="OUTSIDE" strokeWidth="0.0" text="User" wrappingWidth="63.708984375">
                <font>
                   <Font name="Arial Rounded MT Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fx:id="lblUserName" fill="WHITE" layoutX="63.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kamal Silva" wrappingWidth="97.708984375">
+            <Text fx:id="lblUserName" fill="WHITE" layoutX="65.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kamal Silva" wrappingWidth="97.708984375">
                <font>
                   <Font name="Arial Rounded MT Bold" size="11.0" />
                </font>
             </Text>
-            <FontAwesomeIconView fill="WHITE" glyphName="ANGLE_RIGHT" layoutX="119.0" layoutY="19.0" size="16" />
+            <FontAwesomeIconView fill="WHITE" glyphName="ANGLE_RIGHT" layoutX="131.0" layoutY="19.0" size="16" />
          </children>
       </AnchorPane>
       <Separator layoutX="11.0" layoutY="52.0" prefHeight="0.0" prefWidth="625.0" />

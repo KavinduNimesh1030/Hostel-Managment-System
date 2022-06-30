@@ -23,4 +23,12 @@ public class StudentDTO {
     }
 
 
+    public StudentDTO(String student_id, String address, String contact_no, LocalDate date, String gender, String name) {
+        this.student_id =student_id;
+        this.address = address;
+        this.contact_no =contact_no;
+        this.date = date;
+        this.gender = gender;
+        this.name = name;
+    }
 }

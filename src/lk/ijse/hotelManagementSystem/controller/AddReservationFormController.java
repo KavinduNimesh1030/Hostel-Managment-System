@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.hotelManagementSystem.bo.BOFactory;
 import lk.ijse.hotelManagementSystem.bo.custom.ReservationBO;
 import lk.ijse.hotelManagementSystem.bo.custom.impl.RoomBOImpl;
@@ -13,9 +15,12 @@ import lk.ijse.hotelManagementSystem.dto.ReserveDTO;
 import lk.ijse.hotelManagementSystem.dto.RoomDTO;
 import lk.ijse.hotelManagementSystem.dto.StudentDTO;
 import lk.ijse.hotelManagementSystem.entity.Student;
+import lk.ijse.hotelManagementSystem.util.ValidationUtil;
 
 import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AddReservationFormController {
 
@@ -43,6 +48,7 @@ public class AddReservationFormController {
     public Button btnReservationId;
     LocalDate date;
     String resId;
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
 
     public void initialize() {
         colResId.setCellValueFactory(new PropertyValueFactory("res_id"));
@@ -51,6 +57,9 @@ public class AddReservationFormController {
         colRoomId.setCellValueFactory(new PropertyValueFactory("room_id"));
         colStatus.setCellValueFactory(new PropertyValueFactory("status"));
         colRoomId.setCellValueFactory(new PropertyValueFactory("room_id"));
+
+        Pattern statusPattern = Pattern.compile("^[A-z0-9 ,.]{2,30}$");
+        map.put(txtStatus,statusPattern);
 
         loadAllReservation();
         loadAllStudentId();
@@ -72,7 +81,7 @@ public class AddReservationFormController {
 
         tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             // cmbRoomId.setVisible(false);
-            btnAddReservation.setText(newValue != null ? "Update" : "+Reservation");
+            btnAddReservation.setText(newValue != null ? "Update" : "+ Add");
             if(newValue!=null) {
                 cmbRoomId.setValue(newValue.getRoom_id());
                 cmbCustomerId.setValue(newValue.getStudent_id());
@@ -158,7 +167,7 @@ public class AddReservationFormController {
     }
 
     public void btnAddReservationOnAction(ActionEvent actionEvent) {
-        if(btnAddReservation.getText().equals("+ Reservation")) {
+        if(btnAddReservation.getText().equals("+ Add")) {
             String resId = generateNewId();
             try {
                 reservationBO.addReservation(new ReserveDTO(resId, LocalDate.now(), cmbCustomerId.getValue(), cmbRoomId.getValue(), txtStatus.getText()));
@@ -214,6 +223,20 @@ public class AddReservationFormController {
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.CONFIRMATION, "Something Wrong!").show();
+        }
+    }
+
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+        ValidationUtil.validate(map,btnAddReservation);
+        if (keyEvent.getCode() == KeyCode.ENTER){
+            Object response = ValidationUtil.validate(map,btnAddReservation);
+
+            if (response instanceof TextField ) {
+                TextField txtField =(TextField) response;
+                txtField.requestFocus();
+            }else if(response instanceof Boolean) {
+                System.out.println("Work");
+            }
         }
     }
 }

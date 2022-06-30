@@ -29,6 +29,9 @@ public class DashBoardFormController implements Loader {
     public void btnAddReservationOnAction(ActionEvent actionEvent) throws IOException {
         loadUi("AddReservationForm");
     }
+    public void btnViewReservationOnAction(ActionEvent actionEvent) throws IOException {
+        loadUi("ManageKeyMoneyForm");
+    }
 
     @Override
     public void loadUi(String Location) throws IOException {
@@ -36,6 +39,7 @@ public class DashBoardFormController implements Loader {
         Parent parent = FXMLLoader.load(getClass().getResource("../view/"+Location+".fxml"));
         context.getChildren().add(parent);
     }
+
 
 
 }
