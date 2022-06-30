@@ -1,16 +1,19 @@
 package lk.ijse.hotelManagementSystem.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.hotelManagementSystem.bo.BOFactory;
 import lk.ijse.hotelManagementSystem.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hotelManagementSystem.bo.custom.impl.UserBOImpl;
 import lk.ijse.hotelManagementSystem.dto.UserDTO;
+import lk.ijse.hotelManagementSystem.util.ValidationUtil;
 
-public class ManageUserFormController {
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
+
+public class ManageUserFormController{
     private final UserBOImpl userBO = (UserBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
     public TextField txtUserName;
     public TextField txtCurrentPassword;
@@ -19,6 +22,13 @@ public class ManageUserFormController {
     public PasswordField pwdPasswordField;
     public CheckBox checkBox;
     public TextField txtNewUserName;
+    public Button btnUpdate;
+    String password;
+
+
+    public void initialize(){
+
+    }
 
     public void btnUpdateUserOnAction(ActionEvent actionEvent) {
         String userName = txtUserName.getText();
@@ -66,5 +76,13 @@ public class ManageUserFormController {
         txtCurrentPassword.clear();
         pwdPassword.clear();
         pwdPasswordField.clear();
+    }
+
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+    }
+
+    public void btnOnKeyTyped(KeyEvent keyEvent) {
+        password = pwdPasswordField.getText();
+        System.out.println(password);
     }
 }
