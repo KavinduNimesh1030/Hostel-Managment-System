@@ -21,4 +21,6 @@ public interface RoomBO extends SuperBO {
 
     public boolean AddNewRoomType(String id ,int qty) throws Exception;
 
+    public boolean deleteReservation(String id)throws Exception;
+
 }

@@ -17,4 +17,6 @@ public interface StudentBO extends SuperBO {
     public List<StudentDTO> LoadAllStudent() throws Exception;
 
     public List<String> getAllStudentIds() throws Exception;
+
+    public boolean deleteReservation(String id)throws Exception;
 }

@@ -149,9 +149,12 @@ public class AddRoomFormController {
 
     public void btnDeleteRoomOnAction(ActionEvent actionEvent) {
         try {
-            roomBO.deleteRoom(cmbRoomId.getValue());
-            new Alert(Alert.AlertType.CONFIRMATION,"Saved!!").show();
-            loadAllRoom();
+            boolean b =roomBO.deleteReservation(cmbRoomId.getValue());
+            if(b) {
+                roomBO.deleteRoom(cmbRoomId.getValue());
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!!").show();
+                loadAllRoom();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

@@ -3,6 +3,7 @@ package lk.ijse.hotelManagementSystem.bo.custom.impl;
 import javafx.collections.FXCollections;
 import lk.ijse.hotelManagementSystem.bo.custom.RoomBO;
 import lk.ijse.hotelManagementSystem.dao.DAOFactory;
+import lk.ijse.hotelManagementSystem.dao.custom.impl.QueryDAOImpl;
 import lk.ijse.hotelManagementSystem.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.hotelManagementSystem.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.hotelManagementSystem.dto.RoomDTO;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomBOImpl implements RoomBO {
+    private final QueryDAOImpl queryDAO= (QueryDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
     private final RoomDAOImpl roomDAO= (RoomDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
 
     @Override
@@ -62,5 +64,10 @@ public class RoomBOImpl implements RoomBO {
     @Override
     public boolean AddNewRoomType(String id, int qty) throws Exception{
         return roomDAO.addNewRoomType(id,qty);
+    }
+
+    @Override
+    public boolean deleteReservation(String id) throws Exception {
+        return queryDAO.deleteReservationByRoom(id);
     }
 }

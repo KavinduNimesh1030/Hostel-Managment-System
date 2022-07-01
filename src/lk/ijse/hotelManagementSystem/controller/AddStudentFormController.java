@@ -92,10 +92,13 @@ public class AddStudentFormController {
 
     public void btnDeleteCustomer(ActionEvent actionEvent) {
         try {
-            studentBO.deleteStudent(txtCustomerId.getText());
-            new Alert(Alert.AlertType.CONFIRMATION, "Deleted!!").show();
-            loadAllStudent();
-            clearText();
+            boolean b = studentBO.deleteReservation(txtCustomerId.getText());
+            if(b) {
+                studentBO.deleteStudent(txtCustomerId.getText());
+                new Alert(Alert.AlertType.CONFIRMATION, "Deleted!!").show();
+                loadAllStudent();
+                clearText();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

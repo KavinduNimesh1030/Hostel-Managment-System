@@ -2,6 +2,8 @@ package lk.ijse.hotelManagementSystem.bo.custom.impl;
 
 import lk.ijse.hotelManagementSystem.bo.custom.StudentBO;
 import lk.ijse.hotelManagementSystem.dao.DAOFactory;
+import lk.ijse.hotelManagementSystem.dao.custom.impl.QueryDAOImpl;
+import lk.ijse.hotelManagementSystem.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.hotelManagementSystem.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.hotelManagementSystem.dto.StudentDTO;
 import lk.ijse.hotelManagementSystem.entity.Student;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
+    private final RoomDAOImpl roomDAO= (RoomDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
+    private final QueryDAOImpl queryDAO= (QueryDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
     private final StudentDAOImpl studentDAO = (StudentDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
     @Override
     public boolean addStudent(StudentDTO studentDTO) throws Exception {
@@ -49,5 +53,10 @@ public class StudentBOImpl implements StudentBO {
     public List<String> getAllStudentIds() throws Exception {
         List<String> list = studentDAO.getAllStudentIds();
         return list;
+    }
+
+    @Override
+    public boolean deleteReservation(String id) throws Exception {
+        return queryDAO.deleteReservationByStudent(id);
     }
 }
